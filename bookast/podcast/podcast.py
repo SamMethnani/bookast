@@ -1,7 +1,9 @@
 from chatgpt_wrapper import ChatGPT
 import replicate
-# import pickle
-# from pydub import AudioSegment
+from pydub import AudioSegment
+import urllib.request
+
+
 
 class Podcast:
     def __init__(self, book_name:str, output_folder:str, topics_number:int ):
@@ -33,12 +35,28 @@ class Podcast:
             file.write(clean_intro + '\n'+ topics_responses +'\n'+ clean_conclusion) 
 
     def generate_audio_file(self):
-        pass
+        model = "afiaka87/tortoise-tts"
+        version = "e9658de4b325863c4fcdc12d94bb7c9b54cbfe351b7ca1b36860008172b91c71"
+        model = replicate.models.get(model)
+        version = model.versions.get(version)
+        output = version.predict(text= "That's right. The Great Gatsby is a poignant portrayal of the decline of the American Dream and the excesses of the jazz age.", voice_a="halle", preset="standard")
+        print(output)
+        urllib.request.urlretrieve(output, "bookast/data/outputs/audio2.mp3")
+        sound1 = AudioSegment.from_file("/Users/Sam/bookast/bookast/data/outputs/audio1.mp3", format="mp3")
+        sound2 = AudioSegment.from_file("/Users/Sam/bookast/bookast/data/outputs/audio2.mp3", format="mp3")
+
+        # sound1, with sound2 appended 
+        combined = sound1 + sound2
+
+        # export
+        combined.export("/Users/Sam/bookast/bookast/data/outputs/audio_all.mp3", format="mp3")
 
 
 def main():
-    podcast = Podcast("The Great Gatsby", "bookast/data/outputs/",8 )
+    podcast = Podcast("The Great Gatsby", "/Users/Sam/bookast/bookast/data/outputs/",8 )
     podcast.generate_txt_file()
+    # podcast.generate_audio_file()
+
    
 if __name__ == "__main__":
     main()
