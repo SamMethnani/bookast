@@ -39,7 +39,7 @@ class Podcast:
         version = "e9658de4b325863c4fcdc12d94bb7c9b54cbfe351b7ca1b36860008172b91c71"
         model = replicate.models.get(model)
         version = model.versions.get(version)
-        output = version.predict(text= "That's right. The Great Gatsby is a poignant portrayal of the decline of the American Dream and the excesses of the jazz age.", voice_a="halle", preset="standard")
+        output = version.predict(text= "That's right. The Great Gatsby is a poignant portrayal of the decline of the American Dream and the excesses of the jazz age.", voice_a="william", preset="fast")
         print(output)
         urllib.request.urlretrieve(output, "bookast/data/outputs/audio2.mp3")
         sound1 = AudioSegment.from_file("/Users/Sam/bookast/bookast/data/outputs/audio1.mp3", format="mp3")
@@ -54,8 +54,8 @@ class Podcast:
 
 def main():
     podcast = Podcast("The Great Gatsby", "/Users/Sam/bookast/bookast/data/outputs/",8 )
-    podcast.generate_txt_file()
-    # podcast.generate_audio_file()
+    # podcast.generate_txt_file()
+    podcast.generate_audio_file()
 
    
 if __name__ == "__main__":
