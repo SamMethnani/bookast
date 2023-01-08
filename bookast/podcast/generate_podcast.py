@@ -48,8 +48,8 @@ class Podcast:
                 text = line[8:]
                 print(text)
                 print(line[5])
-                voice = "tom" if line[5]=="1" else "william"
-                preset = "standard" if line[5]=="1" else "fast"
+                voice = "daniel" if line[5]=="1" else "william"
+                preset = "standard" # if line[5]=="1" else "fast"
                 output_fname = f"bookast/data/outputs/audio_{ii}.mp3"
                 if not exists(output_fname):
                     
@@ -64,11 +64,11 @@ class Podcast:
         combined = reduce(lambda x,y:x+y, sounds)
 
         # export
-        combined.export("/Users/Sam/bookast/bookast/data/outputs/podcast.mp3", format="mp3")
+        combined.export("bookast/bookast/data/outputs/podcast.mp3", format="mp3")
 
 
 def main():
-    podcast = Podcast("The 7 habits of highly effective people", "/Users/Sam/bookast/bookast/data/outputs/",3 )
+    podcast = Podcast("The 7 habits of highly effective people", "bookast/bookast/data/outputs/",3 )
     #podcast.generate_txt_file()
     podcast.generate_audio_file()
 
