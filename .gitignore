@@ -1,2 +1,4 @@
 # Environment
 bookast-env/
+bookast/__pycache__/config.cpython-39.pyc
+bookast/config.toml
