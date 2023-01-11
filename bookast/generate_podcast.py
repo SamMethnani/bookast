@@ -59,6 +59,11 @@ class Podcast:
         with output_file.open("w") as file:
             file.write(clean_intro + '\n' + topics_responses + '\n' + clean_conclusion)
 
+    def _normalize_audio_lufs(self, sound, target_lufs=-23.0):
+        loudness_before = sound.dBFS
+        sound = sound.apply_gain(target_lufs - loudness_before)
+        return sound
+
     def generate_audio_file(self):
         """Generate an audio file with the podcast conversation. File is saved in the output folder.
         Args:
@@ -89,8 +94,8 @@ class Podcast:
                                                  cvvp_amount=1.0, seed=26031987)
 
                         urllib.request.urlretrieve(output, output_fname)
-            sound = AudioSegment.from_file(output_fname, format="mp3")
-            sounds.append(sound)
+                    sound = self._normalize_audio_lufs(AudioSegment.from_file(output_fname, format="mp3"))
+                    sounds.append(sound)
 
         # sound1, with sound2 appended
         combined = reduce(lambda x, y: x+y, sounds)
