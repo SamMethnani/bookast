@@ -1,3 +1,4 @@
 git+https://github.com/mmabrouk/chatgpt-wrapper
 replicate
 pydub
+typer
