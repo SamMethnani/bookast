@@ -91,9 +91,7 @@ class Podcast:
                     if not exists(output_fname):
 
                         output = version.predict(text=text, voice_a=voice, 
-                                                 custom_voice="bookast/data/inputs/host2.mp3",
-                                                 preset=preset,
-                                                 cvvp_amount=1.0, seed=26031987)
+                                                 reset=preset, cvvp_amount=1.0, seed=26031987)
 
                         urllib.request.urlretrieve(output, output_fname)
                     sound = self._normalize_audio_lufs(AudioSegment.from_file(output_fname, format="mp3"))
