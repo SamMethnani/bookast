@@ -1,4 +1,4 @@
-![bookast]<img src=https://user-images.githubusercontent.com/57623556/212183761-79985c04-6a2d-4b3d-8a75-2f6fdcb19d3a.png width="200" height="100">
+<img src=https://user-images.githubusercontent.com/57623556/212183761-79985c04-6a2d-4b3d-8a75-2f6fdcb19d3a.png width="300" height="300">
 # bookast: ChatGPT Podcast Generator For Books
 
 ## About
