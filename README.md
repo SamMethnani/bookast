@@ -18,7 +18,7 @@ This project uses [ChatGPT](https://openai.com/blog/chatgpt/) to generate podcas
 ```export REPLICATE_API_TOKEN=<your-api-key>```
 
 2. Run the generate_podcast.py script:
-```python bookast/podcast/generate_podcast.py <book-name> <topics-number>```
+```python bookast/generate_podcast.py <book-name> <topics-number>```
 
 ## Example
 To generate a podcast about the book "The Alchemist" by Paulo Coelho, run the following command:

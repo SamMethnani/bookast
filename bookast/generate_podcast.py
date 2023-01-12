@@ -90,7 +90,9 @@ class Podcast:
                     output_fname = self.output_dir / self.book_name / f"audio_{ii}.mp3"
                     if not exists(output_fname):
 
-                        output = version.predict(text=text, voice_a=voice, preset=preset,
+                        output = version.predict(text=text, voice_a=voice, 
+                                                 custom_voice="bookast/data/inputs/host2.mp3",
+                                                 preset=preset,
                                                  cvvp_amount=1.0, seed=26031987)
 
                         urllib.request.urlretrieve(output, output_fname)
