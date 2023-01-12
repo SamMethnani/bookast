@@ -26,7 +26,7 @@ class Podcast:
             Topic question as str
         """
         topic_question = "can you continue the above conversation with a discussion about the " + \
-            str(topic_n) + " topic ? Please make sure that it's coherent with the above conversation and don't do repetitions."
+            str(topic_n) + " topic ? Please make sure that it's coherent with the above conversation and don't repeat words or ideas."
         return topic_question
 
     def generate_txt_file(self):
@@ -41,8 +41,8 @@ class Podcast:
         bot = ChatGPT()
         topics = bot.ask("what are the topics that I should talk about in a podcast about the book " +
                          self.book_name + " ? give me " + str(self.topics_number) + " topics.")
-        intro = bot.ask("can you write me a podcast conversation between 2 hosts talking about the book " + self.book_name +
-                        ". first start with an introduction to the show, the hosts and the book about the above topics, the first host host 1 is Tom and the second host 2 is William. and don't conclude in the end.")
+        intro = bot.ask("can you write me a conversation between 2 hosts of a book podcast. write me an introduction to a the show, and the book " + self.book_name +
+                        ".the topics they're going to talk about are the above topics. Both hosts are men. and don't conclude in the end.")
         clean_intro = "\n".join([line for line in intro.split("\n") if line[:4] == "Host"])
         topics_responses = ""
         for i in range(1, self.topics_number+1):
@@ -113,7 +113,7 @@ def main(book_name: str = typer.Option("The 7 habits of highly effective people"
         output_dir = Path(__file__).resolve().parent / 'data' / 'outputs'
 
     podcast = Podcast(book_name, output_dir, topics_number)
-    #podcast.generate_txt_file()
+    podcast.generate_txt_file()
     podcast.generate_audio_file()
 
 
