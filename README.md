@@ -1,5 +1,5 @@
 # bookast: ChatGPT Podcast Generator For Books
-![bookast](https://i.ytimg.com/vi/iTXmR6wxHdY/maxresdefault.jpg)
+![bookast](https://user-images.githubusercontent.com/57623556/212183761-79985c04-6a2d-4b3d-8a75-2f6fdcb19d3a.png)
 
 This project uses [ChatGPT](https://openai.com/blog/chatgpt/) to generate podcasts about books. We are using the [chatgpt-wrapper](https://github.com/mmabrouk/chatgpt-wrapper) library to interact with the ChatGPT API.
 
