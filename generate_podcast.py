@@ -113,7 +113,7 @@ def main(book_name: str = typer.Option("The 7 habits of highly effective people"
         output_dir = Path(__file__).resolve().parent / 'data' / 'outputs'
 
     podcast = Podcast(book_name, output_dir, topics_number)
-    podcast.generate_txt_file()
+    #podcast.generate_txt_file()
     podcast.generate_audio_file()
 
 
