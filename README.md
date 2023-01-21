@@ -16,8 +16,7 @@ This project uses [ChatGPT](https://openai.com/blog/chatgpt/) to generate podcas
 ```chatgpt install```
 
 ## Usage
-1. Set your Replicate API Key as an environment variable:
-```export REPLICATE_API_TOKEN=<your-api-key>```
+1. Enter your Replicate API token into bookcast/config.toml.
 
 2. Run the generate_podcast.py script:
 ```python bookast/generate_podcast.py --book-name <book-name> --topics-number <topics-number>```
